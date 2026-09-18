@@ -1,0 +1,5 @@
+2024-01-29 10:00:00 INFO Server started
+2024-01-29 10:05:00 ERROR Connection failed
+2024-01-29 10:10:00 INFO User logged in
+2024-01-29 10:15:00 WARNING Low memory
+2024-01-29 10:20:00 INFO Request processed
