@@ -1,0 +1,10 @@
+---
+- name: Demonstrate an Ansible playbook
+  hosts: lab
+  gather_facts: false
+  vars:
+    project_name: devops-lab2
+  tasks:
+    - name: Display the learning project
+      ansible.builtin.debug:
+        msg: "Project {{ project_name }}: Ansible configuration is ready"
