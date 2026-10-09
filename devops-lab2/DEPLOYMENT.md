@@ -18,21 +18,7 @@ docker image rm devops-lab2:local
 
 ## 2. Terraform
 
-```bash
-cd devops-lab2/infrastructure/terraform
-cp terraform.tfvars.example terraform.tfvars
-terraform init -backend=false
-terraform fmt -check
-terraform validate
-terraform plan
-terraform apply
-terraform output
-terraform destroy
-cd ../../..
-```
 
-`apply` и `destroy` запрашивают подтверждение в терминале. Ресурс
-`terraform_data` изменяет только локальный state. Облачный аккаунт не нужен.
 В исходном локальном checkout собственные `.tfvars`, `.terraform/` и state
 игнорируются через `.git/info/exclude`. После нового клонирования эти локальные
 правила нужно добавить самостоятельно перед созданием state и личных переменных:
@@ -56,6 +42,24 @@ EOF
 ```
 
 Команда настройки выполняется из корня репозитория.
+
+Затем выполните учебный пример:
+
+```bash
+cd devops-lab2/infrastructure/terraform
+cp terraform.tfvars.example terraform.tfvars
+terraform init -backend=false
+terraform fmt -check
+terraform validate
+terraform plan
+terraform apply
+terraform output
+terraform destroy
+cd ../../..
+```
+
+`apply` и `destroy` запрашивают подтверждение в терминале. Ресурс
+`terraform_data` изменяет только локальный state. Облачный аккаунт не нужен.
 
 ## 3. Ansible
 
