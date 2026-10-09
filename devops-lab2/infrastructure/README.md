@@ -4,7 +4,7 @@
 Kubernetes, Prometheus и GitHub Actions. Файлы намеренно минимальные:
 проект не содержит прикладного сервиса и не создаёт облачных ресурсов.
 
-Основной сценарий: локальные примеры.
+Основной сценарий: Docker и GitHub Actions.
 
 ## Структура
 
@@ -76,3 +76,14 @@ git branch -a
 
 Историю PR и описание разрешённого учебного конфликта см. в отчёте
 `devops-lab2/REPORT.md` после завершения работы.
+
+## CI и deployment
+
+Workflow `.github/workflows/ci.yml` запускается при push в `main` и
+`feature/lab2-*`, при PR в `main` и вручную через Actions.
+Job `validate` проверяет YAML, Terraform fmt/validate/plan, Ansible,
+сборку и вывод Docker-образа, а также конфигурацию Prometheus через promtool.
+Workflow не развёртывает облако и не требует repository secrets.
+
+Подробные команды запуска и очистки:
+[DEPLOYMENT.md](../DEPLOYMENT.md).
