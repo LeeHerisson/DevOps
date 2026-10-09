@@ -11,7 +11,6 @@ Kubernetes, Prometheus и GitHub Actions. Файлы намеренно мини
 ```text
 DevOps/
 ├── .github/workflows/ci.yml     # GitHub ищет workflow в корне репозитория
-├── .gitignore
 ├── devops-lab1/                # первая лабораторная
 └── devops-lab2/infrastructure/
     ├── terraform/             # terraform_data без внешних провайдеров
@@ -19,8 +18,7 @@ DevOps/
     ├── kubernetes/            # учебные Deployment и Service
     ├── docker/                # образ, печатающий сообщение
     ├── monitoring/            # Prometheus собирает собственные метрики
-    ├── .gitignore
-    └── README.md
+        └── README.md
 ```
 
 Workflow из исходного вложенного шаблона перенесён в `.github/workflows/ci.yml`
@@ -58,8 +56,8 @@ terraform plan
 ```
 
 `terraform_data` хранит учебные данные в локальном state. Он не запускает
-контейнеры, виртуальные машины или платные ресурсы. State и личные tfvars
-исключены из Git. Для запуска и очистки см. документацию по deployment.
+контейнеры, виртуальные машины или платные ресурсы. В текущем локальном checkout state и личные tfvars исключены через
+`.git/info/exclude`; эти правила не передаются при клонировании. Для запуска и очистки см. документацию по deployment.
 
 ## Работа с Git
 
@@ -70,7 +68,7 @@ Feature-ветки сохраняются на GitHub для проверки л
 
 ```bash
 git log --oneline --graph --all
-git rev-list --count main -- devops-lab2 .github .gitignore README.md
+git rev-list --count main -- devops-lab2 .github README.md
 git branch -a
 ```
 
