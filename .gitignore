@@ -1,0 +1,32 @@
+# OS and editors
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# Terraform: local state, caches, plans and private variables
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+*.tfplan
+crash.log
+crash.*.log
+*.tfvars
+*.tfvars.json
+!*.tfvars.example
+# Commit .terraform.lock.hcl when providers are introduced.
+
+# Credentials and local environment
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.retry
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+.venv/
+venv/
