@@ -4,7 +4,7 @@
 Kubernetes, Prometheus и GitHub Actions. Файлы намеренно минимальные:
 проект не содержит прикладного сервиса и не создаёт облачных ресурсов.
 
-Основной сценарий: Terraform, Ansible и Kubernetes.
+Основной сценарий: отдельные примеры Docker, Terraform, Ansible, Kubernetes и CI.
 
 ## Структура
 
@@ -74,8 +74,8 @@ git rev-list --count main -- devops-lab2 .github .gitignore README.md
 git branch -a
 ```
 
-Историю PR и описание разрешённого учебного конфликта см. в отчёте
-`devops-lab2/REPORT.md` после завершения работы.
+Историю PR, команды подсчёта коммитов и описание разрешённого учебного
+конфликта см. в [REPORT.md](../REPORT.md).
 
 ## Ansible
 
@@ -99,3 +99,14 @@ Deployment не использует Docker-образ с `echo`, посколь
 
 `monitoring/prometheus.yml` задаёт сбор собственных метрик Prometheus
 с `localhost:9090`. Метрик прикладного сервиса в этой лабораторной нет.
+
+## CI и deployment
+
+Workflow `.github/workflows/ci.yml` запускается при push в `main` и
+`feature/lab2-*`, при PR в `main` и вручную через Actions.
+Job `validate` проверяет YAML, Terraform fmt/validate/plan, Ansible,
+сборку и вывод Docker-образа, а также конфигурацию Prometheus через promtool.
+Workflow не развёртывает облако и не требует repository secrets.
+
+Подробные команды запуска и очистки:
+[DEPLOYMENT.md](../DEPLOYMENT.md).
