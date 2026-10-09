@@ -1,0 +1,14 @@
+# Wiring example only: the placeholder pod does not listen on port 8080.
+apiVersion: v1
+kind: Service
+metadata:
+  name: devops-lab2
+spec:
+  type: ClusterIP
+  selector:
+    app: devops-lab2
+  ports:
+    - name: http-example
+      port: 80
+      targetPort: 8080
+      protocol: TCP

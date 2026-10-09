@@ -4,7 +4,7 @@
 Kubernetes, Prometheus и GitHub Actions. Файлы намеренно минимальные:
 проект не содержит прикладного сервиса и не создаёт облачных ресурсов.
 
-Основной сценарий: Docker и GitHub Actions.
+Основной сценарий: отдельные примеры Docker, Terraform, Ansible, Kubernetes и CI.
 
 ## Структура
 
@@ -76,6 +76,29 @@ git branch -a
 
 Историю PR и описание разрешённого учебного конфликта см. в отчёте
 `devops-lab2/REPORT.md` после завершения работы.
+
+## Ansible
+
+```bash
+ansible-playbook -i devops-lab2/infrastructure/ansible/inventory.ini \
+  devops-lab2/infrastructure/ansible/playbook.yml --syntax-check
+ansible-playbook -i devops-lab2/infrastructure/ansible/inventory.ini \
+  devops-lab2/infrastructure/ansible/playbook.yml
+```
+
+Playbook печатает сообщение на localhost и не изменяет систему.
+
+## Kubernetes
+
+Deployment запускает Alpine с `sleep 3600`. Service демонстрирует соответствие
+selector и labels, но HTTP-запросы не обслуживает: в pod нет приложения на 8080.
+Deployment не использует Docker-образ с `echo`, поскольку тот сразу завершается.
+Применение манифестов необязательно; команды есть в документации по deployment.
+
+## Monitoring
+
+`monitoring/prometheus.yml` задаёт сбор собственных метрик Prometheus
+с `localhost:9090`. Метрик прикладного сервиса в этой лабораторной нет.
 
 ## CI и deployment
 
