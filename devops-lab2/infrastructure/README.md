@@ -74,8 +74,8 @@ git rev-list --count main -- devops-lab2 .github .gitignore README.md
 git branch -a
 ```
 
-Историю PR и описание разрешённого учебного конфликта см. в отчёте
-`devops-lab2/REPORT.md` после завершения работы.
+Историю PR, команды подсчёта коммитов и описание разрешённого учебного
+конфликта см. в [REPORT.md](../REPORT.md).
 
 ## Ansible
 

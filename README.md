@@ -5,3 +5,6 @@
 
 Каждая лабораторная хранится в своей папке. Общие GitHub Actions находятся
 в `.github/workflows` в корне репозитория.
+
+Для второй лабораторной: [отчёт](devops-lab2/REPORT.md) и
+[инструкция по deployment](devops-lab2/DEPLOYMENT.md).
